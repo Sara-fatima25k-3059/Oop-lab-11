@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+class t5 {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        File f = new File("Confidential.txt");
+        f.createNewFile();
+
+        String d = sc.next();
+
+        if (d.equals("Faculty")) {
+            f.setReadable(true);
+            f.setWritable(true);
+            f.setExecutable(true);
+        } else if (d.equals("student")) {
+            f.setReadable(true);
+            f.setWritable(false);
+            f.setExecutable(false);
+        }
+
+        System.out.println("Read: " + f.canRead());
+        System.out.println("Write: " + f.canWrite());
+        System.out.println("Exec: " + f.canExecute());
+    }
+}
