@@ -1,0 +1,30 @@
+import java.util.*;
+
+class t4 {
+    public static void main(String[] args) {
+        List<Number> l = new ArrayList<>();
+        l.add(10);
+        l.add(5.5);
+        l.add(7);
+        l.add(2.2);
+
+        List<Double> d = new ArrayList<>();
+        for (Number n : l) {
+            d.add(n.doubleValue());
+        }
+
+        Collections.sort(d);
+
+        double sum = 0;
+        double max = d.get(0);
+
+        for (double x : d) {
+            sum += x;
+            if (x > max) max = x;
+        }
+
+        System.out.println(d);
+        System.out.println(sum);
+        System.out.println(max);
+    }
+}
