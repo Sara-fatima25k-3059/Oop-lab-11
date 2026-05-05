@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+
+class t2 {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        String id = sc.nextLine();
+        int pfLab = sc.nextInt();
+        int pfTh = sc.nextInt();
+
+        ArrayList<String> c = new ArrayList<>();
+        int ch = 0;
+
+        while (ch < 15) {
+            String course = sc.next();
+            c.add(course);
+            ch += 3;
+        }
+
+        if (pfLab >= 50 && pfTh >= 50) {
+            if (ch + 6 <= 18) {
+                c.add("OOP Lab");
+                c.add("OOP Theory");
+            }
+        }
+
+        String file = name + ".txt";
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+        bw.write(name + " " + id);
+        bw.newLine();
+        for (String s : c) {
+            bw.write(s);
+            bw.newLine();
+        }
+        bw.close();
+
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String l;
+        while ((l = br.readLine()) != null) {
+            System.out.println(l);
+        }
+        br.close();
+    }
+}
